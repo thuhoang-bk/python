@@ -1,0 +1,21 @@
+
+	https://www.geeksforgeeks.org/pyqt5-create-paint-application/
+	https://www.tutorialspoint.com/pyqt5/index.htm
+
+
+
+	- Mỗi function gọi là một coi là một SLOT, dùng decorator @pyqtSlot trong vài trường hợp giúp tiết kiệm bộ nhớ và chạy
+	nhanh: https://stackoverflow.com/questions/45841843/function-of-pyqtslot
+	
+	- Mỗi button sẽ emit một signal (button.connect(event)) khi được gọi, signal này trỏ tới event, tức là khi có signal thì
+	event (hay slot) sẽ được thực hiện.
+	
+	- Dùng newSignal khi cần connect signal tới nhiều slot: signal.emit() ----------------------> slot_event()
+										signal.connect(slot)
+		emit() một phát thì callback slot_event một phát.
+
+	- Hai lệnh cơ bản là 1. tạo app=QApp, 2. sys.exit(app.exec_()) -> thoát khi close window, exec cho đến khi exit.
+
+	- Không dùng delay mà dùng timer (timeout -> event), cho mọi thao tác cần định thời. 
+		timer = QTimer()
+		timer.timeout.connect(slot_event)
